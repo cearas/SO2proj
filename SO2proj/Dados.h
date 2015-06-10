@@ -47,6 +47,7 @@ HANDLE hMutex, hMutexbomba;
 int total_jogadores = 0;
 jogo novojogo;
 void novo_jogo();
+void cria_jogo();
 void constroiLabirinto(jogo *pdados, int x, int y);
 void mostraLabirinto(jogo dados);
 void criarJogador(jogo *pdados, int pidCliente);

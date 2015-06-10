@@ -99,7 +99,7 @@ DWORD WINAPI ThreadAtendeCliente(LPVOID param){
 			total_jogadores++;
 			m.resultado = 1;
 			JOGO = TRUE;
-			novo_jogo();
+			cria_jogo();
 			}
 			else
 			m.resultado = 0;
@@ -123,7 +123,8 @@ DWORD WINAPI ThreadAtendeCliente(LPVOID param){
 			total++;
 				m.resultado = 1;
 				ListaJogadores[total_jogadores].pid = m.pid;
-				total_jogadores++;	
+				total_jogadores++;
+				novo_jogo();
 			}
 			
 			else
@@ -219,14 +220,14 @@ void constroiLabirinto(jogo *pdados, int x, int y){
 	}
 }
 
-void mostraLabirinto(jogo dados){
+void mostraLabirinto(jogo *pdados){
 	int l, c;
-	for (l = 0; l<dados.maxLin; l++)
+	for (l = 0; l<pdados->maxLin; l++)
 	{
 		printf("\n");
 
-		for (c = 0; c<dados.maxCol; c++)
-			printf(" %c", dados.Mapa[l][c].bloco);
+		for (c = 0; c<pdados->maxCol; c++)
+			printf(" %c", pdados->Mapa[l][c].bloco);
 		printf("\n");
 	}
 }
@@ -374,15 +375,19 @@ DWORD WINAPI ThreadBomba(LPVOID param){
 	return 0;
 }
 
+void cria_jogo(){
+	constroiLabirinto(&novojogo, 10, 10);
+	criarJogador(&novojogo, 1);
+}
+
 void novo_jogo(){
 
 	hMutexbomba = CreateMutex(NULL, FALSE, NULL);
 	/*t1 =CreateThread(NULL,0,(LPTHREAD_START_ROUTINE)ThreadBomba,(LPVOID)hMutex,0,NULL);
 	WaitForSingleObject(t1,INFINITE);*/
 
-	constroiLabirinto(&novojogo, 10, 10);
-	criarJogador(&novojogo, 1);
-	mostraLabirinto(novojogo);
+	mostraLabirinto(&novojogo);
 	colocaBomba(&novojogo, 1);
 	colocaBomba(&novojogo, 1);
+
 }
