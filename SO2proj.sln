@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SO2proj", "SO2proj\SO2proj.vcxproj", "{335920B1-E6D5-43AD-8DA4-72C7FF1D4A32}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SO2projc", "SO2projc\SO2projc.vcxproj", "{81A59EA5-C5AA-4BCF-88D7-D736A4107B45}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{335920B1-E6D5-43AD-8DA4-72C7FF1D4A32}.Debug|Win32.ActiveCfg = Debug|Win32
+		{335920B1-E6D5-43AD-8DA4-72C7FF1D4A32}.Debug|Win32.Build.0 = Debug|Win32
+		{335920B1-E6D5-43AD-8DA4-72C7FF1D4A32}.Release|Win32.ActiveCfg = Release|Win32
+		{335920B1-E6D5-43AD-8DA4-72C7FF1D4A32}.Release|Win32.Build.0 = Release|Win32
+		{81A59EA5-C5AA-4BCF-88D7-D736A4107B45}.Debug|Win32.ActiveCfg = Debug|Win32
+		{81A59EA5-C5AA-4BCF-88D7-D736A4107B45}.Debug|Win32.Build.0 = Debug|Win32
+		{81A59EA5-C5AA-4BCF-88D7-D736A4107B45}.Release|Win32.ActiveCfg = Release|Win32
+		{81A59EA5-C5AA-4BCF-88D7-D736A4107B45}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
