@@ -110,6 +110,7 @@ DWORD WINAPI ThreadAtendeCliente(LPVOID param){
 			if(JOGO == TRUE && JOGO_COMECOU == FALSE && m.pid == ListaJogadores[0].pid){
 				m.resultado = 1;
 				JOGO_COMECOU = TRUE;
+				novo_jogo();
 			}
 			else
 				m.resultado = 0;
@@ -124,7 +125,7 @@ DWORD WINAPI ThreadAtendeCliente(LPVOID param){
 				m.resultado = 1;
 				ListaJogadores[total_jogadores].pid = m.pid;
 				total_jogadores++;
-				novo_jogo();
+				
 			}
 			
 			else
@@ -133,6 +134,7 @@ DWORD WINAPI ThreadAtendeCliente(LPVOID param){
 		else if(m.op == 4)
 		{
 			_tcscpy_s(m.nome,30,TEXT("move baixo"));
+			//mostraLabirinto(&novojogo);
 		}
 		else if(m.op == 5){
 			
@@ -175,20 +177,21 @@ void constroiLabirinto(jogo *pdados, int x, int y){
 	//Haver mais blocos para destruir
 	//Quantidade de Objectos para apanhar
 
+	// C = caminho
+	// D = blocos p/ destruir
+	// I = bloco indestrutiveis
+	char aux = 'I';
 	int i, j, r;
 	pdados->maxLin = x;
 	pdados->maxCol = y;
-	for (i = 0; i<x; i++)
-	for (j = 0; j < y; j++){
-		pdados->Mapa[i][j].bloco = 'D';
-		pdados->Mapa[i][j].permissao = TRUE;
-	}
+
 	for (i = 0; i<x; i++){
 		pdados->Mapa[i][0].bloco = 'I';
 		pdados->Mapa[i][y - 1].bloco = 'I';
 		pdados->Mapa[i][0].permissao = FALSE;
 		pdados->Mapa[i][y - 1].permissao = FALSE;
 	}
+
 	for (i = 1; i<y - 1; i++){
 		pdados->Mapa[0][i].bloco = 'I';
 		pdados->Mapa[0][i].permissao = FALSE;
@@ -196,28 +199,42 @@ void constroiLabirinto(jogo *pdados, int x, int y){
 		pdados->Mapa[x - 1][i].permissao = FALSE;
 	}
 
-	for (i = 0; i<x; i++)
-	for (j = 0; j < y; j++){
-		i++; j++;
-		pdados->Mapa[i][j].bloco = 'I';
-		pdados->Mapa[i][j].permissao = FALSE;
+	for (i = 1; i<x - 1; i++)
+		for (j = 1; j < y - 1; j++){
+			pdados->Mapa[i][j].bloco = 'D';
+			pdados->Mapa[i][j].permissao = FALSE;
+
+		}
 	
-	}
-	for (i = 0; i<x; i++)
-	for (j = 0; j < y; j++){
-		pdados->Mapa[i][j].bloco = 'D';
-		pdados->Mapa[i][j].permissao = TRUE;
-	}
+
+
+	for (i = 2; i<x; i += 2)
+		for (j = 2; j < y; j += 2){
+			pdados->Mapa[i][j].bloco = 'I';
+			pdados->Mapa[i][j].permissao = TRUE;
+		}
+	
 
 	for (i = 1; i<x - 1; i++)
 	for (j = 1; j<y - 1; j++)
 	{
-		r = 1 + (rand() % 100);
-		if (r > 35){
+
+		if ((i == 1 && j == 1) || (i == 1 && j == 2) || (i == 2 && j == 1)){
 			pdados->Mapa[i][j].bloco = 'C';
 			pdados->Mapa[i][j].permissao = TRUE;
 		}
+		else{
+			r = 1 + (rand() % 100);
+			if (r < 35){
+				if (pdados->Mapa[i][j].bloco != aux){
+					pdados->Mapa[i][j].bloco = 'C';
+					pdados->Mapa[i][j].permissao = TRUE;
+				}
+			}
+		}
 	}
+		
+
 }
 
 void mostraLabirinto(jogo *pdados){

@@ -49,7 +49,7 @@ jogo novojogo;
 void novo_jogo();
 void cria_jogo();
 void constroiLabirinto(jogo *pdados, int x, int y);
-void mostraLabirinto(jogo dados);
+void mostraLabirinto(jogo *dados);
 void criarJogador(jogo *pdados, int pidCliente);
 void moveBaixo(jogo *pdados, int pidCliente);
 void moveCima(jogo *pdados, int pidCliente);
