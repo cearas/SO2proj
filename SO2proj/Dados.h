@@ -11,7 +11,7 @@ struct Posicao{
 }typedef posicao;
 
 struct Jogador{
-	int pid;
+	DWORD pid;
 	int x, y;
 	int bombas;
 	int vidas;
@@ -46,6 +46,7 @@ HANDLE hMutex, hMutexbomba;
 
 int total_jogadores = 0;
 jogo novojogo;
+void novo_jogo();
 void constroiLabirinto(jogo *pdados, int x, int y);
 void mostraLabirinto(jogo dados);
 void criarJogador(jogo *pdados, int pidCliente);

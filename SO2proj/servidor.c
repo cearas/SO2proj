@@ -17,13 +17,7 @@ DWORD WINAPI ThreadAtendeCliente(LPVOID param);
 
 //dados jogo
 
-struct JOGADOR{
-	DWORD pid;
-	int x, y;
-}typedef Jogador;
-
-Jogador ListaJogadores[N];
-int total_jogadores=0;
+jogador ListaJogadores[N];
 BOOL JOGO=FALSE, JOGO_COMECOU=FALSE;
 //dados actualiza
 HANDLE hPipeA[N]; 
@@ -129,8 +123,7 @@ DWORD WINAPI ThreadAtendeCliente(LPVOID param){
 			total++;
 				m.resultado = 1;
 				ListaJogadores[total_jogadores].pid = m.pid;
-				total_jogadores++;
-				
+				total_jogadores++;	
 			}
 			
 			else
@@ -392,10 +385,4 @@ void novo_jogo(){
 	mostraLabirinto(novojogo);
 	colocaBomba(&novojogo, 1);
 	colocaBomba(&novojogo, 1);
-
-	while (1){
-
-	}
-
-
 }

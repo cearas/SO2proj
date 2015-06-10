@@ -1,14 +1,13 @@
-﻿Build started 05/06/2015 19:25:32.
+﻿Build started 10/06/2015 17:33:39.
      1>Project "C:\Users\Ceara\Source\Workspaces\warcraft\SO2\SO2proj\SO2proj\SO2proj.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt servidor.c
          servidor.c
-     1>c:\users\ceara\source\workspaces\warcraft\so2\so2proj\so2proj\servidor.c(26): error C2374: 'total_jogadores' : redefinition; multiple initialization
-                 c:\users\ceara\source\workspaces\warcraft\so2\so2proj\so2proj\dados.h(45) : see declaration of 'total_jogadores'
-     1>c:\users\ceara\source\workspaces\warcraft\so2\so2proj\so2proj\servidor.c(379): error C2365: 'jogo' : redefinition; previous definition was 'typedef'
-                 c:\users\ceara\source\workspaces\warcraft\so2\so2proj\so2proj\dados.h(36) : see declaration of 'jogo'
-     1>Done Building Project "C:\Users\Ceara\Source\Workspaces\warcraft\SO2\SO2proj\SO2proj\SO2proj.vcxproj" (Build target(s)) -- FAILED.
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Ceara\Source\Workspaces\warcraft\SO2\SO2proj\Debug\SO2proj.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Ceara\Source\Workspaces\warcraft\SO2\SO2proj\Debug\SO2proj.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Ceara\Source\Workspaces\warcraft\SO2\SO2proj\Debug\SO2proj.lib" /MACHINE:X86 Debug\servidor.obj
+         SO2proj.vcxproj -> C:\Users\Ceara\Source\Workspaces\warcraft\SO2\SO2proj\Debug\SO2proj.exe
+     1>Done Building Project "C:\Users\Ceara\Source\Workspaces\warcraft\SO2\SO2proj\SO2proj\SO2proj.vcxproj" (Build target(s)).
 
-Build FAILED.
+Build succeeded.
 
-Time Elapsed 00:00:02.11
+Time Elapsed 00:00:02.69
